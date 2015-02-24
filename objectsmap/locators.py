@@ -8,4 +8,7 @@ class Login:
     Exit_Menu = (By.ID, 'exit')
 
 class JsonTree:
-    
+    Load_Button = (By.ID, 'load_json')
+    Json_Text_Tab = (By.ID, 'json_text')
+    Json_Tree_Tab = (By.ID, 'json_tree')
+    Li_Branch = (By.ID, 'li_branch')
