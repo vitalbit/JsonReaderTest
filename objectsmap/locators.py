@@ -12,3 +12,4 @@ class JsonTree:
     Json_Text_Tab = (By.ID, 'json_text')
     Json_Tree_Tab = (By.ID, 'json_tree')
     Li_Branch = (By.ID, 'li_branch')
+    Text_Area = (By.ID, 'text_area')

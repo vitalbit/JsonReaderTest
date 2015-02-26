@@ -9,6 +9,13 @@ class IndexPage(BasePage):
     TITLE = "JSON reader"
     LOCATION = "http://localhost/CustomHandlersModules/"
 
+    def ifLogoutPresent(self, timeToWait):
+        try:
+            WebDriverWait(self._driver, timeToWait).until(EC.presence_of_element_located(Login.Exit_Menu))
+            return True
+        except TimeoutException:
+            return False
+
     def isIndexPage(self):
         return self._driver.title == IndexPage.TITLE
 
@@ -22,6 +29,6 @@ class IndexPage(BasePage):
             wait.until(EC.presence_of_element_located(Login.Login_Text)).send_keys(name)
             wait.until(EC.presence_of_element_located(Login.Password_Text)).send_keys(password)
             wait.until(EC.presence_of_element_located(Login.Submit_Button)).click()
-            assert WebDriverWait(self._driver, 120).until(EC.presence_of_element_located(Login.Exit_Menu))
+            return True
         except TimeoutException:
-            assert False
+            return False
