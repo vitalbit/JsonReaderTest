@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.4"
+# command to install dependencies
+install:
+  - "pip install selenium"
+  - "pip install pytest"
+# command to run tests
+script: py.test tests/index_tests.py
