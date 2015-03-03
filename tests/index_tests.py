@@ -23,19 +23,19 @@ def test_auth_incorrect(driver):
     index_page = IndexPage(driver)
     index_page.open()
     index_page.login("admin", "dsfsdf")
-    assert not index_page.ifLogoutPresent(10)
+    assert not index_page.logoutPresence(10)
 
 def test_auth_correct(driver):
     index_page = IndexPage(driver)
     index_page.open()
     index_page.login("admin", "qwerty")
-    assert index_page.ifLogoutPresent(120)
+    assert index_page.logoutPresence(120)
 
 def test_refresh(driver):
     index_page = IndexPage(driver)
     index_page.open()
     driver.refresh()
-    assert index_page.ifLogoutPresent(10)
+    assert index_page.logoutPresence(10)
 
 def test_loadJson(driver):
     index_page = IndexPageAuthorized(driver)
@@ -43,12 +43,11 @@ def test_loadJson(driver):
     index_page.loadJson()
     index_page.clickTreeTab()
     index_page.clickTextTab()
-    assert index_page.ifTextPresent()
+    assert index_page.textPresence()
 
 def test_branches(driver):
     index_page = IndexPageAuthorized(driver)
     index_page.open()
     index_page.loadJson()
     index_page.clickTreeTab()
-    res = index_page.clickBranch(0)
-    assert res
+    index_page.clickBranch(0)

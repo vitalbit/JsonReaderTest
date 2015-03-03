@@ -12,4 +12,4 @@ def step_login(context):
 
 @then('user has authorized and logout reference appeared')
 def step_assert(context):
-    assert context.page.ifLogoutPresent(120)
+    assert context.page.logoutPresence(120)

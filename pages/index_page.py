@@ -1,5 +1,6 @@
 from objectsmap.locators import Login
 from pages.base_page import BasePage
+from pages.exceptions import LoginException
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,7 +10,7 @@ class IndexPage(BasePage):
     TITLE = "JSON reader"
     LOCATION = "http://localhost/CustomHandlersModules/"
 
-    def ifLogoutPresent(self, timeToWait):
+    def logoutPresence(self, timeToWait):
         try:
             WebDriverWait(self._driver, timeToWait).until(EC.presence_of_element_located(Login.EXIT_MENU))
             return True
@@ -29,6 +30,5 @@ class IndexPage(BasePage):
             wait.until(EC.presence_of_element_located(Login.LOGIN_TEXT)).send_keys(name)
             wait.until(EC.presence_of_element_located(Login.PASSWORD_TEXT)).send_keys(password)
             wait.until(EC.presence_of_element_located(Login.SUBMIT_BUTTON)).click()
-            return True
         except TimeoutException:
-            return False
+            raise LoginException('Something wrong with user login!')
