@@ -1,15 +1,15 @@
 from selenium.webdriver.common.by import By
 
 class Login:
-    Enter_Menu = (By.ID, 'enter')
-    Login_Text = (By.ID, 'login')
-    Password_Text = (By.ID, 'password')
-    Submit_Button = (By.ID, 'subm_button')
-    Exit_Menu = (By.ID, 'exit')
+    ENTER_MENU = (By.ID, 'enter')
+    LOGIN_TEXT = (By.ID, 'login')
+    PASSWORD_TEXT = (By.ID, 'password')
+    SUBMIT_BUTTON = (By.ID, 'subm_button')
+    EXIT_MENU = (By.ID, 'exit')
 
 class JsonTree:
-    Load_Button = (By.ID, 'load_json')
-    Json_Text_Tab = (By.ID, 'json_text')
-    Json_Tree_Tab = (By.ID, 'json_tree')
-    Li_Branch = (By.ID, 'li_branch')
-    Text_Area = (By.ID, 'text_area')
+    LOAD_BUTTON = (By.ID, 'load_json')
+    JSON_TEXT_TAB = (By.ID, 'json_text')
+    JSON_TREE_TAB = (By.ID, 'json_tree')
+    LI_BRANCH = (By.ID, 'li_branch')
+    TEXT_AREA = (By.ID, 'text_area')

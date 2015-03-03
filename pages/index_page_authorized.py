@@ -15,7 +15,7 @@ class IndexPageAuthorized(BasePage):
     def loadJson(self):
         wait = WebDriverWait(self._driver, 10)
         try:
-            wait.until(EC.presence_of_element_located(JsonTree.Load_Button)).click()
+            wait.until(EC.presence_of_element_located(JsonTree.LOAD_BUTTON)).click()
             return True
         except TimeoutException:
             return False
@@ -23,7 +23,7 @@ class IndexPageAuthorized(BasePage):
     def clickTextTab(self):
         wait = WebDriverWait(self._driver, 10)
         try:
-            wait.until(EC.element_to_be_clickable(JsonTree.Json_Text_Tab)).click()
+            wait.until(EC.element_to_be_clickable(JsonTree.JSON_TEXT_TAB)).click()
             return True
         except TimeoutException:
             return False
@@ -31,7 +31,7 @@ class IndexPageAuthorized(BasePage):
     def clickTreeTab(self):
         wait = WebDriverWait(self._driver, 20)
         try:
-            wait.until(EC.element_to_be_clickable(JsonTree.Json_Tree_Tab)).click()
+            wait.until(EC.element_to_be_clickable(JsonTree.JSON_TREE_TAB)).click()
             return True
         except TimeoutException:
             return False
@@ -39,7 +39,7 @@ class IndexPageAuthorized(BasePage):
     def ifTextPresent(self):
         wait = WebDriverWait(self._driver, 10)
         try:
-            wait.until(EC.presence_of_element_located(JsonTree.Text_Area))
+            wait.until(EC.presence_of_element_located(JsonTree.TEXT_AREA))
             return True
         except TimeoutException:
             return False
@@ -47,12 +47,12 @@ class IndexPageAuthorized(BasePage):
     def getText(self):
         wait = WebDriverWait(self._driver, 10)
         try:
-            return wait.until(EC.presence_of_element_located(JsonTree.Text_Area)).getText()
+            return wait.until(EC.presence_of_element_located(JsonTree.TEXT_AREA)).getText()
         except TimeoutException:
             return None
 
     def getBranches(self):
-        return self._driver.find_elements(JsonTree.Li_Branch)
+        return self._driver.find_elements(JsonTree.LI_BRANCH)
 
     def clickBranch(self, index):
         try:

@@ -11,7 +11,7 @@ class IndexPage(BasePage):
 
     def ifLogoutPresent(self, timeToWait):
         try:
-            WebDriverWait(self._driver, timeToWait).until(EC.presence_of_element_located(Login.Exit_Menu))
+            WebDriverWait(self._driver, timeToWait).until(EC.presence_of_element_located(Login.EXIT_MENU))
             return True
         except TimeoutException:
             return False
@@ -25,10 +25,10 @@ class IndexPage(BasePage):
     def login(self, name, password):
         wait = WebDriverWait(self._driver, 10)
         try:
-            wait.until(EC.presence_of_element_located(Login.Enter_Menu)).click()
-            wait.until(EC.presence_of_element_located(Login.Login_Text)).send_keys(name)
-            wait.until(EC.presence_of_element_located(Login.Password_Text)).send_keys(password)
-            wait.until(EC.presence_of_element_located(Login.Submit_Button)).click()
+            wait.until(EC.presence_of_element_located(Login.ENTER_MENU)).click()
+            wait.until(EC.presence_of_element_located(Login.LOGIN_TEXT)).send_keys(name)
+            wait.until(EC.presence_of_element_located(Login.PASSWORD_TEXT)).send_keys(password)
+            wait.until(EC.presence_of_element_located(Login.SUBMIT_BUTTON)).click()
             return True
         except TimeoutException:
             return False
